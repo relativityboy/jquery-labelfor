@@ -33,3 +33,8 @@ Within - This will find elements matching the css expression following '_next' w
 //only associate labels within the matched elements
 $('.css-username').labelFor();
 ```
+
+Notes:
+
+LabelFor is non destructive to existing ids, and can be run multiple times over the same set of elements without messing up existing associations.
+

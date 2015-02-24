@@ -6,6 +6,7 @@ jQuery extension to automatically associate label elements with nearby inputs.
 Within the 'for' tag of a label '_next' or '_prev' to link either the next or previous html element. Add a css expression to the 'for' tag to search _within_ the next or previous element.
 
 Examples:
+
 Simple - This will associate _any_ next element.
 
 ```html

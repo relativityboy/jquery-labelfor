@@ -1,25 +1,34 @@
 jquery-labelfor
 ===============
 
-jQuery extension to automatically associate label elements with nearby inputs.
+More than one instance of an id on a page? Don't control the entire page? Want your 
+forms to be more accessible? LabelFor is for you!
 
-Within the 'for' tag of a label '_next' or '_prev' to link either the next or previous html element. Add a css expression to the 'for' tag to search _within_ the next or previous element.
 
-Examples:
+**What is it?** LabelFor is a jQuery extension to automatically associate label elements 
+with nearby inputs in an html standards compliant way.
 
-Simple - This will associate _any_ next element.
 
+### To use:
+
+**Simple**
+
+The first label will associate with _any_ next element via for="_next". 
+The second label will associate with the previous element. 
 ```html
 <label for="_next">Username</label><input type="text">
-```
 
+<input type="text"><label for="_prev">Zip</label>
+```
+The Javascript. (you can specify any root node(s))
 ```javascript
-//find all labels within body
+//to find all labels within body
 $('body').labelFor();
 ```
 
-Within - This will find elements matching the css expression following '_next' within the element immediately following the label.
+**Simple+ CSS** 
 
+This will find elements matching the css expression following '_next' within the element immediately following the label.
 ```html
 <div class='css-username'>
     <label for="_next input">Username</label>
@@ -34,7 +43,15 @@ Within - This will find elements matching the css expression following '_next' w
 $('.css-username').labelFor();
 ```
 
+### to include on your page
+* If you're including on a very simple web-page you can copy /dist/main.js and the /dis/main.js.map into your javscript directory and use a \<src> tag to include main.js on your page.
+* If you're using an ES5 build system you can require('jquery-labelfor') wherever you're doing your other plugins
+* If you're using ES2015+ or Babel I'd suggest using _import $lf from "jquery-labelfor/src/main"_ This will help your bundler minimize file sizes. 
+You'll also be able to call _$lf(".css-expression"")_
+
+
 Notes:
 
-LabelFor is non destructive to existing ids, and can be run multiple times over the same set of elements without messing up existing associations.
-
+* Non invasive: LabelFor is non destructive to existing ids.
+* Idempotent: It can be run multiple times over the same set of elements without messing up existing associations.
+ 
